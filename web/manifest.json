@@ -1,6 +1,6 @@
 {
-    "name": "chang_mini",
-    "short_name": "chang_mini",
+    "name": "flutter_application",
+    "short_name": "flutter_application",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

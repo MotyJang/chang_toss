@@ -1,4 +1,4 @@
-package com.example.chang_mini
+package com.example.flutter_application
 
 import io.flutter.embedding.android.FlutterActivity
 
