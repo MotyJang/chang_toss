@@ -42,7 +42,7 @@ class _SendPageState extends State<SendPage> {
         return GestureDetector(
           onTap: () {},
           child: Scaffold(
-            backgroundColor: TossColor.grey1,
+            backgroundColor: TossColor.grey2,
             appBar: createAppBar(context),
             body: createBody(bankService),
             bottomNavigationBar: createNavigationBar(context, bankService),
