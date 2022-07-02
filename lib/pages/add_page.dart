@@ -49,6 +49,7 @@ class _AddPageState extends State<AddPage> {
           if (ranDouble < 0.33) return 'assets/kakao_bank.png';
           if (ranDouble < 0.67) return 'assets/sinhan_bank.png';
           return 'assets/toss_bank.png';
+          ////////랜덤?
         }
 
         createBank() {
