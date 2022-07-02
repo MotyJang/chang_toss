@@ -1,5 +1,6 @@
 import 'dart:math';
 
+///안녕하세요
 import 'package:chang_mini/config/colors.dart';
 import 'package:chang_mini/model/bank.dart';
 import 'package:chang_mini/services/bank_service.dart';
