@@ -9,7 +9,7 @@ class BankService extends ChangeNotifier {
   var f = NumberFormat('###,###,###,###');
 
   SharedPreferences? savedData;
-  List<Bank> myBankList = [new Bank(name: 'a', bankImage: 'aaa', balance: 100)];
+  List<Bank> myBankList = [];
 
   BankService(SharedPreferences this.savedData) {
     getPrefsData();

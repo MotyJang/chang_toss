@@ -45,16 +45,73 @@ class _SendPageState extends State<SendPage> {
             backgroundColor: TossColor.grey1,
             appBar: createAppBar(context),
             body: createBody(bankService),
-            bottomNavigationBar: createNavigationBar(),
+            bottomNavigationBar: createNavigationBar(context, bankService),
           ),
         );
       },
     );
   }
 
-  ElevatedButton createNavigationBar() {
+  ElevatedButton createNavigationBar(context, bankService) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        if ((widget.fromBank?.balance ?? 0) <
+            (int.tryParse(
+                  moneyController.text.replaceAll(',', ''),
+                ) ??
+                0)) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              backgroundColor: TossColor.bluegrey,
+              content: Text("잔액이 부족해요"),
+            ),
+          );
+        } else if (toBank != null && moneyController.text != '') {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                content: Image.asset(
+                  'assets/money_icon.png',
+                  width: 32,
+                ),
+                title: Text(
+                  '${toBank?.name} 으로 ${int.tryParse(
+                    moneyController.text.replaceAll(',', ''),
+                  )} 원을 보내시겠어요?',
+                  style: const TextStyle(
+                    color: TossColor.black,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      bankService.sendMoney(
+                        widget.fromBank,
+                        toBank!,
+                        int.tryParse(
+                                moneyController.text.replaceAll(',', '')) ??
+                            0,
+                      );
+                      Navigator.pop(context);
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          backgroundColor: TossColor.blue,
+                          content: Text("전송 완료"),
+                        ),
+                      );
+                    },
+                    child: const Text("보내기"),
+                  )
+                ],
+              );
+            },
+          );
+        }
+      },
       style: ElevatedButton.styleFrom(
         minimumSize: const Size(double.infinity, 52),
         onPrimary: TossColor.white,
