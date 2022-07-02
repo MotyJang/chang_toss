@@ -23,5 +23,3 @@ class Bank {
     balance = json['balance'];
   }
 }
-
-//
