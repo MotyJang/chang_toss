@@ -15,7 +15,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Consumer<BankService>(
       builder: (context, service, child) {
-        return Scaffold();
+        return Scaffold(
+          appBar: AppBar(
+            title: Text('ss'),
+          ),
+        );
       },
     );
   }

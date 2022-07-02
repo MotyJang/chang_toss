@@ -1,3 +1,4 @@
+import 'package:chang_mini/pages/home_page.dart';
 import 'package:chang_mini/pages/splash_page.dart';
 import 'package:chang_mini/services/bank_service.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: SplashPage(),
+      home: HomePage(),
     );
   }
 }
